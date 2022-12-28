@@ -1,8 +1,8 @@
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
-
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddCors();
+
 var app = builder.Build();
+app.UseCors(options => options.WithOrigins("*").AllowAnyMethod().AllowAnyHeader());
 
 // Data
 var lots = new List<LotItem>
