@@ -16,11 +16,13 @@ export default function Catalogue() {
   }
 
   return (
-    <>
-      {lots?.map(lot => <CatalogueItem
-        item={lot}
-        deleteItem={() => deleteLot(lot.id)}
-      />)}
-    </>
+    <div className='py-2 px-10'>
+      <table className="min-w-full">
+        {lots?.map(lot => <CatalogueItem
+          item={lot}
+          deleteItem={() => deleteLot(lot.id)}
+        />)}
+      </table>
+    </div>
   )
 }
