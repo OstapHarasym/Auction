@@ -21,7 +21,7 @@ app.MapGet("/lots/{id}", (int id) => lots.First(x => x.Id == id));
 
 app.MapPost("/lots", (CreateLotRequest request) =>
 {
-    var newLot = new LotItem(lots.Max(x => x.Id), request.Title, request.CurrentBid);
+    var newLot = new LotItem(lots.Max(x => x.Id) + 1, request.Title, request.StartPrice);
     lots.Add(newLot);
     return newLot;
 });
@@ -45,4 +45,4 @@ app.Run();
 
 // Types
 record LotItem(int Id, string Title, decimal CurrentBid);
-record CreateLotRequest(string Title, decimal CurrentBid);
+record CreateLotRequest(string Title, decimal StartPrice, decimal Step);
