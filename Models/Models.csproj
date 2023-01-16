@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+  </PropertyGroup>
+	
+  <ItemGroup>
+	<Using Include="System" />
+	<Using Include="System.Collections.Generic" />
+	<Using Include="System.Linq" />
+	<Using Include="System.Text" />
+	<Using Include="System.Threading.Tasks" />
+  </ItemGroup>
+
+</Project>
