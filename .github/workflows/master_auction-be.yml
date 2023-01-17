@@ -31,7 +31,7 @@ jobs:
       with:
         push: true
         tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_318fbe0a41c848d49b43b42c4fc3e77b }}/auction:${{ github.sha }}
-        file: ./Dockerfile
+        file: ./API/Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
