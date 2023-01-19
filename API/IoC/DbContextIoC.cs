@@ -9,6 +9,6 @@ internal static class DbContextIoC
 {
     internal static void AddDbContext(this WebApplicationBuilder builder)
     {
-        builder.Services.AddDbContext<DatabaseContext>(options => options.UseNpgsql(builder.Configuration["ConnectionStrings:Default"]));
+        builder.Services.AddDbContext<DatabaseContext>(options => options.UseNpgsql(builder.Configuration["auction_db"]));
     }
 }
