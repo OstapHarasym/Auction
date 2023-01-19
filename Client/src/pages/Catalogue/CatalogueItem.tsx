@@ -13,7 +13,7 @@ export default function CatalogueItem(params: params) {
         {params.item.title}
       </td>
       <td className="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
-        {params.item.currentBid}
+        {params.item.startingPrice}
       </td>
       <td className='text-sm text-blue-600 text-center font-light px-6 py-4 whitespace-nowrap'>
         <button onClick={params.deleteItem} className='hover:text-red-900'>

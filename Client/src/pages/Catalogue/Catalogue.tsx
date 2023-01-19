@@ -7,10 +7,10 @@ export default function Catalogue() {
   const [lots, setLots] = useState<CatalogueItemModel[]>()
 
   useEffect(() => {
-    LotsService.getLots().then(data => setLots(data))
+    LotsService.getLots().then(data => setLots(data.lots))
   }, []);
 
-  function deleteLot(id: number) {
+  function deleteLot(id: string) {
     LotsService.deleteLot(id).then(() =>
       setLots(prevState => prevState?.filter(lot => lot.id !== id)))
   }

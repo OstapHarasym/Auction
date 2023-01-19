@@ -1,5 +1,6 @@
 export interface CatalogueItemModel {
-  id: number,
-  title: string,
-  currentBid: number
+  id: string
+  title: string
+  bidIncrement: number
+  startingPrice: number
 }
