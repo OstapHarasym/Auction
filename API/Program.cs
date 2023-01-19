@@ -15,7 +15,7 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 
-app.UseCors(options => options.WithOrigins("*").AllowAnyMethod().AllowAnyHeader());
+app.UseCors();
 
 app.MapEndpoints();
 

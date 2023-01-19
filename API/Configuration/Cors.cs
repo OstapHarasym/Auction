@@ -9,6 +9,6 @@ internal static class Cors
     {
         // TODO: Configure CORS for local and production enviroments
 
-        builder.Services.AddCors();
+        builder.Services.AddCors(options => options.AddDefaultPolicy(policy => policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
     }
 }
