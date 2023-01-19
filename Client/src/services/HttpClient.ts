@@ -1,7 +1,7 @@
 import axios, {AxiosResponse} from 'axios';
 
 const instance = axios.create({
-  baseURL: 'http://localhost:5295',
+  baseURL: 'https://auction-be.azurewebsites.net',
   timeout: 15000,
 });
 

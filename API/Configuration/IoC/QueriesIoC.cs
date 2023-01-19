@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Queries.Implementation;
 using Queries.Interfaces;
 
-namespace API.IoC;
+namespace API.Configuration.IoC;
 
 internal static class QueriesIoC
 {

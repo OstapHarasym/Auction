@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Services.Implementation;
 using Services.Interfaces;
 
-namespace API.IoC;
+namespace API.Configuration.IoC;
 
 internal static class ServicesIoC
 {
