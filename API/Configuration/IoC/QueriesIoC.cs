@@ -10,5 +10,6 @@ internal static class QueriesIoC
     internal static void AddQueries(this WebApplicationBuilder builder)
     {
         builder.Services.AddScoped<ILotQueries, LotQueries>();
+        builder.Services.AddScoped<IBidQueries, BidQueries>();
     }
 }

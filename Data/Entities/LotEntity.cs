@@ -9,4 +9,6 @@ public class LotEntity
     public decimal StartingPrice { get; set; }
 
     public decimal BidIncrement { get; set; }
+    
+    public List<BidEntity> Bids { get; set; }
 }

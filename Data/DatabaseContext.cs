@@ -9,9 +9,11 @@ public class DatabaseContext : DbContext
     public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options) { }
 
     public DbSet<LotEntity> Lots { get; set; }
+    public DbSet<BidEntity> Bids { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfiguration(new LotEntityConfiguration());
+        builder.ApplyConfiguration(new BidEntityConfiguration());
     }
 }

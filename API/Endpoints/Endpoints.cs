@@ -7,5 +7,6 @@ internal static class Endpoints
     internal static void MapEndpoints(this WebApplication app)
     {
         app.MapLotsEndpoints();
+        app.MapBidEndpoints();
     }
 }

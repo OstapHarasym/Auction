@@ -22,6 +22,25 @@ namespace Data.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("Data.Entities.BidEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("numeric");
+
+                    b.Property<Guid>("LotId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LotId");
+
+                    b.ToTable("Bids", (string)null);
+                });
+
             modelBuilder.Entity("Data.Entities.LotEntity", b =>
                 {
                     b.Property<Guid>("Id")
@@ -41,6 +60,22 @@ namespace Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Lots", (string)null);
+                });
+
+            modelBuilder.Entity("Data.Entities.BidEntity", b =>
+                {
+                    b.HasOne("Data.Entities.LotEntity", "Lot")
+                        .WithMany("Bids")
+                        .HasForeignKey("LotId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Lot");
+                });
+
+            modelBuilder.Entity("Data.Entities.LotEntity", b =>
+                {
+                    b.Navigation("Bids");
                 });
 #pragma warning restore 612, 618
         }

@@ -10,5 +10,6 @@ internal static class ServicesIoC
     internal static void AddServices(this WebApplicationBuilder builder)
     {
         builder.Services.AddScoped<ILotService, LotService>();
+        builder.Services.AddScoped<IBidService, BidService>();
     }
 }
