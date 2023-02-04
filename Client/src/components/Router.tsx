@@ -1,4 +1,4 @@
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import {BrowserRouter, Navigate, Route, Routes,} from 'react-router-dom';
 import Catalogue from '../pages/Catalogue/Catalogue';
 import Navbar from './Navbar';
 import CreateLotForm from '../pages/CreateLot/CreateLotForm';
@@ -9,6 +9,7 @@ export default function Router() {
     <BrowserRouter>
       <Navbar/>
       <Routes>
+        <Route path='' element={<Navigate to='/catalogue'/>}/>
         <Route path='/catalogue' element={<Catalogue/>}/>
         <Route path='/create-lot' element={<CreateLotForm/>}/>
         <Route path='/lots/:id' element={<Lot/>}/>
