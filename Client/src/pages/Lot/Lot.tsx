@@ -8,7 +8,6 @@ import BidList from './BidList';
 export default function Lot() {
   const { id } = useParams<string>()
   const [lot, setLot] = useState<CatalogueItemModel>()
-  const [bids, setBids] = useState()
   const [bidModalOpen, setBidModalOpen] = useState(false)
 
   useEffect(() => {

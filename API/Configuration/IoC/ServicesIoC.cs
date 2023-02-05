@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using API.Hubs;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Services.Implementation;
 using Services.Interfaces;
@@ -11,5 +12,6 @@ internal static class ServicesIoC
     {
         builder.Services.AddScoped<ILotService, LotService>();
         builder.Services.AddScoped<IBidService, BidService>();
+        builder.Services.AddScoped<ILotHub, LotHubHelper>();
     }
 }

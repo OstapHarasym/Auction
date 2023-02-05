@@ -42,7 +42,7 @@ public class LotQueries : ILotQueries
             Title = x.Title,
             StartingPrice = x.StartingPrice,
             BidIncrement = x.BidIncrement
-        }).FirstOrDefault();
+        }).FirstOrDefault(x => x.Id == id);
 
         if (lot is null)
         {

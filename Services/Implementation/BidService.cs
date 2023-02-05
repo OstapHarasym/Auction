@@ -10,10 +10,12 @@ namespace Services.Implementation;
 public class BidService : IBidService
 {
     private readonly DatabaseContext _db;
+    private readonly ILotHub _lotHub;
 
-    public BidService(DatabaseContext db)
+    public BidService(DatabaseContext db, ILotHub lotHub)
     {
         _db = db;
+        _lotHub = lotHub;
     }
     
     public async Task<CreateBidResponse> CreateBid(CreateBidRequest request)
@@ -42,6 +44,8 @@ public class BidService : IBidService
         lot.Bids.Add(bid);
 
         await _db.SaveChangesAsync();
+
+        await _lotHub.RefreshBids(lot.Id);
 
         return new CreateBidResponse
         {

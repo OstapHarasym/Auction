@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using API.Hubs;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Queries.Interfaces;
 using Services.DataTransferObjects.Lot.Requests;
@@ -15,5 +16,7 @@ internal static class BidEndpoints
 
         app.MapPost("bids", async (IBidService service, CreateBidRequest request)
             => Results.Ok(await service.CreateBid(request)));
+        
+        app.MapHub<LotHub>("bids/connect");
     }
 }

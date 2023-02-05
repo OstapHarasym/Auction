@@ -1,7 +1,9 @@
 import axios, {AxiosResponse} from 'axios';
 
+export const backendUrl = 'https://auction-be.azurewebsites.net';
+
 const instance = axios.create({
-  baseURL: 'https://auction-be.azurewebsites.net',
+  baseURL: backendUrl,
   timeout: 15000,
 });
 
