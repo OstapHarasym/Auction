@@ -62,6 +62,29 @@ namespace Data.Migrations
                     b.ToTable("Lots", (string)null);
                 });
 
+            modelBuilder.Entity("Data.Entities.UserEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("character varying(60)");
+
+                    b.Property<string>("UniqueName")
+                        .HasMaxLength(32)
+                        .HasColumnType("character varying(32)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UniqueName")
+                        .IsUnique();
+
+                    b.ToTable("Users", (string)null);
+                });
+
             modelBuilder.Entity("Data.Entities.BidEntity", b =>
                 {
                     b.HasOne("Data.Entities.LotEntity", "Lot")

@@ -13,5 +13,6 @@ internal static class ServicesIoC
         builder.Services.AddScoped<ILotService, LotService>();
         builder.Services.AddScoped<IBidService, BidService>();
         builder.Services.AddScoped<ILotHub, LotHubHelper>();
+        builder.Services.AddScoped<IAuthService, AuthService>();
     }
 }

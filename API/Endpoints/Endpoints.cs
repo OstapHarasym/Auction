@@ -8,5 +8,6 @@ internal static class Endpoints
     {
         app.MapLotsEndpoints();
         app.MapBidEndpoints();
+        app.MapAuthEndpoints();
     }
 }

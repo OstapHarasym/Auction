@@ -5,6 +5,9 @@ export const backendUrl = 'https://auction-be.azurewebsites.net';
 const instance = axios.create({
   baseURL: backendUrl,
   timeout: 15000,
+  headers: {
+    Authorization : `Bearer ${localStorage.getItem('token')}`
+  }
 });
 
 const responseBody = (response: AxiosResponse) => response.data;

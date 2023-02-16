@@ -10,10 +10,13 @@ public class DatabaseContext : DbContext
 
     public DbSet<LotEntity> Lots { get; set; }
     public DbSet<BidEntity> Bids { get; set; }
+    
+    public DbSet<UserEntity> Users { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfiguration(new LotEntityConfiguration());
         builder.ApplyConfiguration(new BidEntityConfiguration());
+        builder.ApplyConfiguration(new UserEntityConfiguration());
     }
 }

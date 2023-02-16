@@ -10,10 +10,13 @@ internal static class LotEndpoints
 {
     internal static void MapLotsEndpoints(this WebApplication app)
     {
-        app.MapGet("lots", (ILotQueries service) => Results.Ok(service.GetLots()));
+        app.MapGet("lots", (ILotQueries service)
+            => Results.Ok(service.GetLots()));
 
-        app.MapGet("lots/{id}", (ILotQueries service, Guid id) => Results.Ok(service.GetLot(id)));
+        app.MapGet("lots/{id}", (ILotQueries service, Guid id)
+            => Results.Ok(service.GetLot(id)));
 
-        app.MapPost("lots", (ILotService service, CreateLotRequest request) => Results.Ok(service.CreateLot(request)));
+        app.MapPost("lots", (ILotService service, CreateLotRequest request)
+            => Results.Ok(service.CreateLot(request)));
     }
 }
