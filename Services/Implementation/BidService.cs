@@ -11,11 +11,13 @@ public class BidService : IBidService
 {
     private readonly DatabaseContext _db;
     private readonly ILotHub _lotHub;
+    private readonly ICurrentUser _currentUser;
 
-    public BidService(DatabaseContext db, ILotHub lotHub)
+    public BidService(DatabaseContext db, ILotHub lotHub, ICurrentUser currentUser)
     {
         _db = db;
         _lotHub = lotHub;
+        _currentUser = currentUser;
     }
     
     public async Task<CreateBidResponse> CreateBid(CreateBidRequest request)
@@ -38,7 +40,9 @@ public class BidService : IBidService
         var bid = new BidEntity
         {
             LotId = request.LotId,
-            Amount = request.Amount
+            Amount = request.Amount,
+            BidTime = DateTime.UtcNow,
+            BidderId = _currentUser.Id
         };
         
         lot.Bids.Add(bid);

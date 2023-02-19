@@ -70,15 +70,16 @@ public class AuthService : IAuthService
             throw new Exception("The username or password is incorrect.");
         }
 
-        var token = CreateToken(request);
+        var token = CreateToken(user);
 
         return token;
     }
 
-    private string CreateToken(LoginRequest user)
+    private string CreateToken(UserEntity user)
     {
         var claims = new List<Claim> {
-            new (ClaimTypes.Name, user.UniqueName)
+            new (ClaimTypes.Name, user.UniqueName),
+            new (ClaimTypes.Sid, user.Id.ToString())
         };
 
         var secret = _configuration.GetSection("SECURITY_SECRET").Value!;

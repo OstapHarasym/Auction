@@ -15,5 +15,9 @@ public class BidEntityConfiguration : IEntityTypeConfiguration<BidEntity>
         builder.HasOne(x => x.Lot)
             .WithMany(x => x.Bids)
             .HasForeignKey(x => x.LotId);
+
+        builder.HasOne(x => x.Bidder)
+            .WithMany(x => x.Bids)
+            .HasForeignKey(x => x.BidderId);
     }
 }

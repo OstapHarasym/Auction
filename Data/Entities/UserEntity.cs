@@ -7,4 +7,8 @@ public class UserEntity
     public string UniqueName { get; set; }
     
     public string PasswordHash { get; set; }
+    
+    public List<LotEntity> Lots { get; set; }
+    
+    public List<BidEntity> Bids { get; set; }
 }

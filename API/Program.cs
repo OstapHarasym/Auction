@@ -9,9 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.AddDbContext();
 builder.AddQueries();
 builder.AddServices();
-builder.Services.AddSignalR();
-
+builder.AddAuthentication();
 builder.AddCors();
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
@@ -19,6 +21,12 @@ app.UseHttpsRedirection();
 
 app.UseCors();
 
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.MapEndpoints();
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.Run();

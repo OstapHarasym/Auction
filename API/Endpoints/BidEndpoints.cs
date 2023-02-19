@@ -15,7 +15,8 @@ internal static class BidEndpoints
             => Results.Ok(await service.GetBids(lotId)));
 
         app.MapPost("bids", async (IBidService service, CreateBidRequest request)
-            => Results.Ok(await service.CreateBid(request)));
+            => Results.Ok(await service.CreateBid(request)))
+            .RequireAuthorization();
         
         app.MapHub<LotHub>("bids/connect");
     }

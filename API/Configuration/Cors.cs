@@ -7,10 +7,11 @@ internal static class Cors
 {
     internal static void AddCors(this WebApplicationBuilder builder)
     {
-        // TODO: Configure CORS for local and production environments
-
+        const string cloudOrigin = "https://green-water-0f69d6810.2.azurestaticapps.net";
+        const string localOrigin = "http://localhost:5173";
+        
         builder.Services.AddCors(options => options.AddDefaultPolicy(policy => policy
-            .WithOrigins("https://green-water-0f69d6810.2.azurestaticapps.net")
+            .WithOrigins($"{cloudOrigin},{localOrigin}")
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials()

@@ -31,10 +31,18 @@ namespace Data.Migrations
                     b.Property<decimal>("Amount")
                         .HasColumnType("numeric");
 
+                    b.Property<DateTime>("BidTime")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("BidderId")
+                        .HasColumnType("uuid");
+
                     b.Property<Guid>("LotId")
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BidderId");
 
                     b.HasIndex("LotId");
 
@@ -50,6 +58,19 @@ namespace Data.Migrations
                     b.Property<decimal>("BidIncrement")
                         .HasColumnType("numeric");
 
+                    b.Property<string>("Description")
+                        .HasMaxLength(1024)
+                        .HasColumnType("character varying(1024)");
+
+                    b.Property<DateTime>("End")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("SellerId")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("Start")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<decimal>("StartingPrice")
                         .HasColumnType("numeric");
 
@@ -58,6 +79,8 @@ namespace Data.Migrations
                         .HasColumnType("character varying(64)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("SellerId");
 
                     b.ToTable("Lots", (string)null);
                 });
@@ -87,18 +110,44 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Data.Entities.BidEntity", b =>
                 {
+                    b.HasOne("Data.Entities.UserEntity", "Bidder")
+                        .WithMany("Bids")
+                        .HasForeignKey("BidderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Data.Entities.LotEntity", "Lot")
                         .WithMany("Bids")
                         .HasForeignKey("LotId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Bidder");
+
                     b.Navigation("Lot");
                 });
 
             modelBuilder.Entity("Data.Entities.LotEntity", b =>
                 {
+                    b.HasOne("Data.Entities.UserEntity", "Seller")
+                        .WithMany("Lots")
+                        .HasForeignKey("SellerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Seller");
+                });
+
+            modelBuilder.Entity("Data.Entities.LotEntity", b =>
+                {
                     b.Navigation("Bids");
+                });
+
+            modelBuilder.Entity("Data.Entities.UserEntity", b =>
+                {
+                    b.Navigation("Bids");
+
+                    b.Navigation("Lots");
                 });
 #pragma warning restore 612, 618
         }

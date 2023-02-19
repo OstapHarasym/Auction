@@ -14,7 +14,5 @@ internal static class AuthEndpoints
         
         app.MapPost("login", async (IAuthService service, LoginRequest request)
             => Results.Ok(await service.Login(request)));
-
-        app.MapPost("refresh-token", () => Results.Ok());
     }
 }
