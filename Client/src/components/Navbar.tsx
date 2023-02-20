@@ -28,7 +28,7 @@ export default function Navbar() {
       <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
           <NavLink to="/catalogue" className="flex items-center">
-            <img src="public/hammer.svg" className="mr-3 h-6 sm:h-9" alt="logo"/>
+            <img src="../assets/hammer.svg" className="mr-3 h-6 sm:h-9" alt="logo"/>
             <span className="self-center text-xl font-semibold whitespace-nowrap">Auction</span>
           </NavLink>
           <div className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
