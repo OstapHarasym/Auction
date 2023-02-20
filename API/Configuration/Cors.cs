@@ -11,7 +11,7 @@ internal static class Cors
         const string localOrigin = "http://localhost:5173";
         
         builder.Services.AddCors(options => options.AddDefaultPolicy(policy => policy
-            .WithOrigins($"{cloudOrigin},{localOrigin}")
+            .WithOrigins(cloudOrigin)
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials()
