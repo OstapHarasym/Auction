@@ -11,6 +11,7 @@ builder.AddQueries();
 builder.AddServices();
 builder.AddAuthentication();
 builder.AddCors();
+builder.AddAzureServiceBus();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

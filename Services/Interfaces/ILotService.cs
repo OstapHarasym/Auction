@@ -5,5 +5,5 @@ namespace Services.Interfaces;
 
 public interface ILotService
 {
-    CreateLotResponse CreateLot(CreateLotRequest request);
+    Task<CreateLotResponse> CreateLot(CreateLotRequest request);
 }

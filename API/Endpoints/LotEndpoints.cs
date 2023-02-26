@@ -16,8 +16,8 @@ internal static class LotEndpoints
         app.MapGet("lots/{id}", (ILotQueries service, Guid id)
             => Results.Ok(service.GetLot(id)));
 
-        app.MapPost("lots", (ILotService service, CreateLotRequest request) 
-            => Results.Ok(service.CreateLot(request)))
+        app.MapPost("lots", async (ILotService service, CreateLotRequest request) 
+            => Results.Ok(await service.CreateLot(request)))
             .RequireAuthorization();
     }
 }

@@ -13,7 +13,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queries", "Queries\Queries.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{8D7B7434-E1E1-44AE-9286-F38E133A79B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Functions", "Functions\Functions.csproj", "{6AB5B2F0-C83E-47ED-99BE-64B8712FE054}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Functions", "Functions\Functions.csproj", "{06EDE6E1-4EFC-4353-B277-4D69DF8D4CD0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workflows", "Workflows", "{C5AC0167-6FE4-4DB8-BFEB-BFF48B5A9619}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\deploy-backend.yml = .github\workflows\deploy-backend.yml
+		.github\workflows\deploy-functions.yml = .github\workflows\deploy-functions.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +47,10 @@ Global
 		{8D7B7434-E1E1-44AE-9286-F38E133A79B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D7B7434-E1E1-44AE-9286-F38E133A79B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D7B7434-E1E1-44AE-9286-F38E133A79B2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6AB5B2F0-C83E-47ED-99BE-64B8712FE054}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6AB5B2F0-C83E-47ED-99BE-64B8712FE054}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6AB5B2F0-C83E-47ED-99BE-64B8712FE054}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6AB5B2F0-C83E-47ED-99BE-64B8712FE054}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06EDE6E1-4EFC-4353-B277-4D69DF8D4CD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06EDE6E1-4EFC-4353-B277-4D69DF8D4CD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06EDE6E1-4EFC-4353-B277-4D69DF8D4CD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06EDE6E1-4EFC-4353-B277-4D69DF8D4CD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,5 @@
-﻿using Data;
+﻿using Azure.Messaging.ServiceBus;
+using Data;
 using Data.Entities;
 using Services.DataTransferObjects.Lot.Requests;
 using Services.DataTransferObjects.Lot.Responses;
@@ -10,14 +11,16 @@ public class LotService : ILotService
 {
     private readonly DatabaseContext _db;
     private readonly ICurrentUser _currentUser;
+    private readonly ServiceBusSender _serviceBusSender;
 
-    public LotService(DatabaseContext db, ICurrentUser currentUser)
+    public LotService(DatabaseContext db, ICurrentUser currentUser, ServiceBusClient serviceBusClient)
     {
         _db = db;
         _currentUser = currentUser;
+        _serviceBusSender = serviceBusClient.CreateSender("lotend");
     }
 
-    public CreateLotResponse CreateLot(CreateLotRequest request)
+    public async Task<CreateLotResponse> CreateLot(CreateLotRequest request)
     {
         var lotEntity = new LotEntity
         {
@@ -30,9 +33,11 @@ public class LotService : ILotService
             SellerId = _currentUser.Id
         };
 
-        _db.Add(lotEntity);
+        await _db.AddAsync(lotEntity);
 
-        _db.SaveChanges();
+        await _db.SaveChangesAsync();
+
+        await _serviceBusSender.ScheduleMessageAsync(new (lotEntity.Id.ToString()), request.End);
 
         return new CreateLotResponse
         {
