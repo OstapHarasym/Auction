@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import {BidService} from '../services/BidService';
 import {BidModel} from '../types/BidModel';
 import {HubConnectionBuilder} from '@microsoft/signalr';
-import {backendUrl} from '../../../core/HttpClient';
+import {backendUrl} from '../../../lib/HttpClient';
 
 interface Props {
   lotId?: string
@@ -33,8 +33,17 @@ export default function BidList(props: Props) {
 
   return (
     <>
-      <p>Total bids: {bids?.length}</p>
-      {bids?.map((bid) => <p>{bid.amount}</p>)}
+      {bids?.map((bid) => <tr className="bg-white border-b">
+        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+          {bid.amount}
+        </th>
+        <td className="px-6 py-4">
+          {bid.bidderName}
+        </td>
+        <td className="px-6 py-4">
+          {`${bid.bidTime?.toString()}`}
+        </td>
+      </tr>)}
     </>
   )
 }

@@ -5,5 +5,5 @@ export interface LotModel {
   bidIncrement: number,
   description: string,
   start: Date,
-  end: Date
+  end: Date,
 }

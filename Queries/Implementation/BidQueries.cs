@@ -21,8 +21,11 @@ public class BidQueries : IBidQueries
             .Select(x => new GetBidsResponse
             {
                 Id = x.Id,
-                Amount = x.Amount
+                Amount = x.Amount,
+                BidderName = x.Bidder.UniqueName,
+                BidTime = x.BidTime
             })
+            .OrderByDescending(x => x.BidTime)
             .ToListAsync();
     }
 }

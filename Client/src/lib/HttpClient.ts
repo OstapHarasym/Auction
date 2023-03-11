@@ -1,6 +1,6 @@
 import axios, {AxiosResponse} from 'axios';
 
-export const backendUrl = 'https://auction-be.azurewebsites.net';
+export const backendUrl = 'http://localhost:7095';
 
 const anonymousInstance = axios.create({
   baseURL: backendUrl,

@@ -3,7 +3,7 @@ import {LoginModel} from '../types/LoginModel';
 import {AuthService} from '../services/AuthService';
 import {useNavigate} from 'react-router-dom';
 
-export function Login() {
+export function LoginForm() {
   const { register, handleSubmit } = useForm<LoginModel>()
   const navigate = useNavigate()
 

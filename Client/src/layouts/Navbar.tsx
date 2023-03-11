@@ -1,6 +1,7 @@
 import {NavLink, useLocation, useNavigate} from 'react-router-dom';
-import {useState} from 'react';
-import logo from '../../../assets/hammer.svg';
+import React, {useState} from 'react';
+import logo from '/hammer.svg';
+import {Button} from '../ui/Button';
 
 function showHeader(pathName: string) {
   const hideHeaderRoutes = [
@@ -11,7 +12,7 @@ function showHeader(pathName: string) {
 }
 
 export default function Navbar() {
-  const [isAuthorized] = useState(localStorage.getItem('token') !== undefined)
+  const [isAuthorized] = useState(false)
   const location = useLocation()
   const navigate = useNavigate()
 
@@ -49,16 +50,12 @@ export default function Navbar() {
           <div className="flex items-center lg:order-2">
             {
               isAuthorized
-              ? <button onClick={() => logout()} className='text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2'>
-                  Sign out
-                </button>
+              ? <Button onClick={() => logout()} colour='red' title='Sign out'/>
               : <>
                   <NavLink to='/login' className="text-gray-800 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2">
                     Log in
                   </NavLink>
-                  <NavLink to='/register' className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2">
-                    Sign up
-                  </NavLink>
+                  <Button onClick={() => navigate('/register')} colour='blue' title='Sign up'/>
                 </>
             }
           </div>

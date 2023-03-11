@@ -1,4 +1,6 @@
 export interface BidModel {
-  bidId: string,
+  bidId: string
   amount: number
+  bidderName: string
+  bidTime: Date
 }

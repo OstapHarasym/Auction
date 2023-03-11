@@ -3,4 +3,5 @@ export interface CatalogueItemModel {
   title: string
   bidIncrement: number
   startingPrice: number
+  description: string
 }

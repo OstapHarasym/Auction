@@ -1,6 +1,5 @@
 import {ReactNode} from 'react';
 import {useNavigate, Routes, Route as DomRoute} from 'react-router-dom';
-import useAuth from '../features/header/hooks/useAuth';
 
 interface Params {
   path: string
@@ -10,7 +9,7 @@ interface Params {
 
 export default function Route(params: Params) {
   const navigate = useNavigate()
-  const token = useAuth()
+  const token = ''
 
   if (params.auth && !token) {
     navigate(-1)

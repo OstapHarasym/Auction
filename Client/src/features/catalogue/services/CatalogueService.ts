@@ -1,4 +1,4 @@
-import {requests} from '../../../core/HttpClient';
+import {requests} from '../../../lib/HttpClient';
 import {CatalogueModel} from '../types/CatalogueModel';
 
 export const CatalogueService = {

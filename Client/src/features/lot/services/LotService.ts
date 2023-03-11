@@ -1,4 +1,4 @@
-import {requests} from '../../../core/HttpClient';
+import {requests} from '../../../lib/HttpClient';
 import {CatalogueItemModel} from '../../catalogue/types/CatalogueItemModel';
 
 export const LotService = {

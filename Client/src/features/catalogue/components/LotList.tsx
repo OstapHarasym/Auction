@@ -3,7 +3,7 @@ import {CatalogueItemModel} from '../types/CatalogueItemModel';
 import {CatalogueService} from '../services/CatalogueService';
 import CatalogueItem from './CatalogueItem';
 
-export default function Catalogue() {
+export default function LotList() {
   const [lots, setLots] = useState<CatalogueItemModel[]>()
 
   useEffect(() => {

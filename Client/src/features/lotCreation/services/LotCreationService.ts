@@ -1,4 +1,4 @@
-import {requests} from '../../../core/HttpClient';
+import {requests} from '../../../lib/HttpClient';
 import {CreateLotModel} from '../types/CreateLotModel';
 
 export const LotCreationService = {
