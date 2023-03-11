@@ -68,7 +68,6 @@ export default function LotViewer() {
           </section>
         </>
       ) : (<BidModal closeModal={() => setBidModalOpen(false)} lotId={lot?.id}/>)}
-
     </>
   )
 }

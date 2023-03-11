@@ -1,5 +1,5 @@
 import {NavLink, useLocation, useNavigate} from 'react-router-dom';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import logo from '/hammer.svg';
 import {Button} from '../ui/Button';
 
@@ -12,9 +12,13 @@ function showHeader(pathName: string) {
 }
 
 export default function Navbar() {
-  const [isAuthorized] = useState(false)
   const location = useLocation()
   const navigate = useNavigate()
+  const [authorized, setAuthorized] = useState<boolean>()
+
+  useEffect(() => {
+    setAuthorized(localStorage.getItem('token') !== null)
+  }, [])
 
   function logout() {
     localStorage.removeItem('token')
@@ -49,7 +53,7 @@ export default function Navbar() {
           </div>
           <div className="flex items-center lg:order-2">
             {
-              isAuthorized
+              authorized
               ? <Button onClick={() => logout()} colour='red' title='Sign out'/>
               : <>
                   <NavLink to='/login' className="text-gray-800 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2">

@@ -18,9 +18,9 @@ export default function CreateLotForm() {
       <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
         <h2 className="mb-4 text-xl font-bold text-gray-900">Create a new lot</h2>
         <form>
-          <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
+          <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 pb-5">
             <div className='col-span-2'>
-              <TextInput label='LotViewer title' type='text' placeholder='LotViewer tile' onChange={(newValue) => setValue('title', newValue)}/>
+              <TextInput label='Lot title' type='text' placeholder='Lot title' onChange={(newValue) => setValue('title', newValue)}/>
             </div>
 
             <TextInput label='Starting price' type='number' placeholder='Starting price' onChange={(newValue) => setValue('startingPrice', +newValue)}/>
